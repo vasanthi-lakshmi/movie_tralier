@@ -1,0 +1,171 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+            background-image:url("image2.jpg");
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+            position:relative;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color:white;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+        img{
+         border-radius:25%;
+         border:4px solid white        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body style=background-image:url(image2.jpg)>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">lovely movies</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="zUPx-Cj60Zk" data-toggle="modal" data-target="#trailer">
+    <img src="https://naasongs.com/wp-content/uploads/2015/08/Bale-Bale-Magadivoy-2015.jpg" width="220" height="342">
+    <h2 style="color:red;">balabalamagadivoy</h2>
+    <h3 style="front-size:4px;color:blue"><p>comedy movie</p></h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Q9EWF6fzg8o" data-toggle="modal" data-target="#trailer">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJj9NBtfFQl-ymopnRl5I4lxVR4HbL-1hb3XD-UtrlEmrwddwn2g" width="220" height="342">
+    <h2 style="color:red;">devadas</h2>
+    <h3 style="front-size:4px;color:blue"><p>comdey movie</p></h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="KPySnTIgOok" data-toggle="modal" data-target="#trailer">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx1s8B-NlGOCdSFP6A590TqeaTqtsjY9eP232bRJ9d5RgUQ0_A" width="220" height="342">
+    <h2 style="color:red;">pokiri</h2>
+    <h3 style="front-size:4px;color:blue"><p>love story</p></h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="njEpusfnTyw" data-toggle="modal" data-target="#trailer">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNRc4e3pvuyIozMGWtNCggBRs0PdqcP_QZRGjccFBA6TsAaaJ-Hg" width="220" height="342">
+    <h2 style="color:red;">Eega</h2>
+    <h3 style="front-size:4px;color:blue"><p>animated movie</p></h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="gycP7XRoTTs" data-toggle="modal" data-target="#trailer">
+    <img src="http://tollyrevenue.com/wp-content/uploads/2015/04/2nd-week-poster.jpg" width="220" height="342">
+    <h2 style="color:red;">S/oSatyamurthy</h2>
+    <h3 style="front-size:4px;color:blue"><p>feel good movie</p></h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="CvgUc5XiyfM" data-toggle="modal" data-target="#trailer">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5y8xroU_H4Efrfb_V6PIhKXF_AGZq7kCuoUh43e88azr0fCdp8w" width="220" height="342">
+    <h2 style="color:red;">jawaan</h2>
+    <h3 style="front-size:4px;color:blue"><p>solder life</p></h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="oF3XBrcGYn8" data-toggle="modal" data-target="#trailer">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGPGLHjW9731TwLV5YVUe685aYOOJ2SgvCHEm1-_uBAC_y5-cW" width="220" height="342">
+    <h2 style="color:red;">Temper</h2>
+    <h3 style="front-size:4px;color:blue"><p>actio film</p></h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="raSc82QlXVw" data-toggle="modal" data-target="#trailer">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3CV4z5-v8Yq0Tqu2CSTrmsZKpXAVwQxEhrndaFOiau_YZ5GD5Qw" width="220" height="342">
+    <h2 style="color:red;">Adirindi</h2>
+    <h3 style="front-size:4px;color:blue"><p>action thiller film</p></h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="cwEe5nL3u9Q" data-toggle="modal" data-target="#trailer">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-XMYtoPW3UBd7jQwbfXxH4CVfLQ3ksAl6gRP0KS-vzGCtGPqOmw" width="220" height="342">
+    <h2 style="color:red;">Shivalinga</h2>
+    <h3 style="front-size:4px;color:blue"><p>horror movie</p></h3>
+</div>
+
+    </div>
+  </body>
+</html>
